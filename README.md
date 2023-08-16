@@ -1,2 +1,2 @@
 # izmir
-IaC tool to manage cloud resources
+IaC tool to manage cloud resources.
