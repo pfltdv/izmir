@@ -10,8 +10,9 @@ import (
 func TestRootCommand(t *testing.T) {
 	actual := new(bytes.Buffer)
 	RootCmd.SetOut(actual)
-	RootCmd.Execute()
+	err := RootCmd.Execute()
 
+	assert.Nil(t, err)
 	assert.Contains(t, actual.String(), "completion")
 	assert.Contains(t, actual.String(), "version")
 	assert.Contains(t, actual.String(), "help")
