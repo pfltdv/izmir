@@ -1,0 +1,40 @@
+name: "Build"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - release-*
+      
+permissions:
+  checks: write
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+      - name: Setup Go
+        uses: actions/setup-go@93397bea11091df50f3d7e59dc26a7711a8bcfbe # v4.1.0
+        with:
+          go-version-file: 'go.mod'
+          cache-dependency-path: "go.sum"
+      - name: Checkstyle
+        run: make checkstyle
+      - name: Build
+        run: make build
+      - name: Test
+        run: make test          
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
+        with:
+          name: distribution
+          path: dist
+          retention-days: 1
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@150e2f992e4fad1379da2056d1d1c279f520e058 # v3.8.0
+        if: success() || failure() 
+        with:
+          report_paths: 'report.xml'
