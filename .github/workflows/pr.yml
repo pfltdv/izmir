@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: make build
       - name: Test
-        run: make build          
+        run: make test          
       - name: Archive build artifacts
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
