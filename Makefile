@@ -30,10 +30,13 @@ tools: tools/lint tools/gotestsum ## Installs required tools
 .PHONY: build
 build: build/darwin/amd64 build/linux/amd64 build/windows/amd64 ## Compiles and generates the izmir binary
 	
-
 .PHONY: test
 test: tools/gotestsum ## Executes tests
 	$(GOPATH)/bin/gotestsum
+
+.PHONY: run
+run: ## Run izmir
+	go run main.go $(ARGS)
 
 # HELPERS
 .PHONY: build/darwin/amd64

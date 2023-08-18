@@ -13,6 +13,6 @@ func Run(args []string) error {
 
 var RootCmd = &cobra.Command{
 	Use:   "izmir",
-	Short: "Open source Cloud IaC Automation Tool",
-	Long:  "Izmir offers cloud provisioning with configuration files.",
+	Short: "Open source Cloud Platform as Code Tool",
+	Long:  "Izmir offers platform provisioning from configuration files.",
 }
