@@ -11,10 +11,6 @@ var VersionCmd = &cobra.Command{
 	RunE:  versionCmdF,
 }
 
-func init() {
-	RootCmd.AddCommand(VersionCmd)
-}
-
 func versionCmdF(command *cobra.Command, args []string) error {
 	return model.PrintVersion(command.OutOrStdout())
 }
