@@ -24,7 +24,10 @@ func init() {
 	SyncCmd.Flags().StringVarP(&ConfigRoot, "root", "r", "", "Root path of the platform configuration files")
 	SyncCmd.Flags().BoolVarP(&DryRun, "plan", "p", false, "Execute in dry-run mode and display list of resources")
 	DiffCmd.Flags().StringVarP(&ConfigRoot, "root", "r", "", "Root path of the platform configuration files")
-	RootCmd.AddCommand(VersionCmd)
-	RootCmd.AddCommand(SyncCmd)
+	DropCmd.Flags().StringVarP(&ConfigRoot, "root", "r", "", "Root path of the platform configuration files")
+	DropCmd.Flags().BoolVarP(&DryRun, "plan", "p", false, "Execute in dry-run mode and display list of resources")
 	RootCmd.AddCommand(DiffCmd)
+	RootCmd.AddCommand(DropCmd)
+	RootCmd.AddCommand(SyncCmd)
+	RootCmd.AddCommand(VersionCmd)
 }

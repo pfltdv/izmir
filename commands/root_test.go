@@ -15,8 +15,10 @@ func TestRootCommand(t *testing.T) {
 
 	assert.Nil(t, err)
 	assert.Contains(t, actual.String(), "completion")
-	assert.Contains(t, actual.String(), "version")
-	assert.Contains(t, actual.String(), "sync")
 	assert.Contains(t, actual.String(), "diff")
+	assert.Contains(t, actual.String(), "drop")
 	assert.Contains(t, actual.String(), "help")
+	assert.Contains(t, actual.String(), "sync")
+	assert.Contains(t, actual.String(), "version")
+
 }
