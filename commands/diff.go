@@ -7,13 +7,13 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var SyncCmd = &cobra.Command{
-	Use:   "sync",
-	Short: "Sync platform configuration to the cloud",
-	RunE:  syncCmdF,
+var DiffCmd = &cobra.Command{
+	Use:   "diff",
+	Short: "Calculates the difference between local configuration with remote cloud",
+	RunE:  diffCmdF,
 }
 
-func syncCmdF(command *cobra.Command, args []string) error {
+func diffCmdF(command *cobra.Command, args []string) error {
 	if !util.DirExists(ConfigRoot) {
 		return fmt.Errorf("Configuration file root does not exists")
 	}
