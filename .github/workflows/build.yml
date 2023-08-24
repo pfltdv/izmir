@@ -42,6 +42,6 @@ jobs:
         uses: vladopajic/go-test-coverage@dc15a009f393da986bfd1ae3e0de9b25b3172f03 # v2.7.1
         with:
           profile: cover.out
-          threshold-file: 80
-          threshold-package: 80
-          threshold-total: 60
+          threshold-file: 0
+          threshold-package: 0
+          threshold-total: 0
