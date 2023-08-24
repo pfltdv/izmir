@@ -1,6 +1,6 @@
 module github.com/pfltdv/izmir
 
-go 1.21.0
+go 1.21
 
 require (
 	cloud.google.com/go v0.110.7 // indirect
