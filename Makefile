@@ -32,7 +32,7 @@ build: build/darwin/amd64 build/linux/amd64 build/windows/amd64 ## Compiles and 
 	
 .PHONY: test
 test: tools/gotestsum ## Executes tests
-	GOMAXPROCS=1 $(GOPATH)/bin/gotestsum
+	GOMAXPROCS=1 $(GOPATH)/bin/gotestsum -- -coverprofile=cover.out ./...
 
 .PHONY: run
 run: ## Run izmir

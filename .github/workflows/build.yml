@@ -38,3 +38,10 @@ jobs:
         if: success() || failure() 
         with:
           report_paths: 'report.xml'
+      - name: check test coverage
+        uses: vladopajic/go-test-coverage@dc15a009f393da986bfd1ae3e0de9b25b3172f03 # v2.7.1
+        with:
+          profile: cover.out
+          threshold-file: 80
+          threshold-package: 80
+          threshold-total: 95
